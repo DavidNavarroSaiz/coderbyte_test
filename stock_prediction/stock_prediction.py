@@ -1,4 +1,4 @@
-import helper
+import helper as helper
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
@@ -22,15 +22,9 @@ dataset_test = scaler.transform(dataset_test)
 x_train, y_train = helper.create_dataset(dataset_train)
 x_test, y_test = helper.create_dataset(dataset_test)
 
-# print(np.shape(x_train),np.shape(x_test))
-# reshape the 'x_train' and 'x_test' datasets
 x_train = x_train.reshape((x_train.shape[0],x_train.shape[1],1))
 x_test = x_test.reshape((x_test.shape[0],x_test.shape[1],1))
-# print(np.shape(x_train),np.shape(x_test))
-# print(x_train)
-# print(y_train)
-# implement the 'Sequential' model here
-# print((x_train.shape[1],x_train.shape[2]))
+
 model = Sequential()
 
 model.add(LSTM(units= 4,input_shape= (x_train.shape[1],x_train.shape[2]),return_sequences= True))
